@@ -7,15 +7,12 @@ export default function courses(state = initialState.courses, action) {
       return action.courses;
 
     case types.CREATE_COURSE_SUCCESS:
-      return [
-        ...state,
-        Object.assign({}, action.course)
-      ];
+      return [ ...state, action.course];
 
     case types.UPDATE_COURSE_SUCCESS:
       return [
         ...state.filter(course => course.id !== action.course.id),
-        Object.assign({}, action.course)
+        action.course
       ];
 
     default:
